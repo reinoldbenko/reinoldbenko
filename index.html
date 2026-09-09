@@ -11,7 +11,8 @@
         :root {
             --bg-color: #0a0a0a;
             --text-color: #ffffff;
-            --accent-color: #ffb703; /* Napenergia sárga/arany kiemelő szín */
+            --accent-color: #22c55e; /* Környezetbarát zöld kiemelő szín (Eco Green) */
+            --accent-rgb: 34, 197, 94;
             --nav-bg: rgba(0, 0, 0, 0.95);
             --card-bg: #141414;
         }
@@ -29,7 +30,7 @@
             display: flex; justify-content: space-between; align-items: center;
             padding: 15px 50px; background: var(--nav-bg);
             z-index: 1000; box-sizing: border-box;
-            border-bottom: 1px solid rgba(255, 183, 3, 0.2);
+            border-bottom: 1px solid rgba(var(--accent-rgb), 0.2);
         }
 
         .logo {
@@ -49,10 +50,14 @@
         .social-icons a { color: white; font-size: 1.1rem; transition: 0.3s; opacity: 0.7; }
         .social-icons a:hover { color: var(--accent-color); opacity: 1; transform: translateY(-3px); }
 
+        /* HEZDŐLAP / HERO - ITT HILIVATKOZHATSZ A SAJÁT JPG FÁJLODRA */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url('solar-hero.jpg'); 
-            background-size: cover; background-position: center;
+            /* Cseréld ki a 'hatterkep.jpg' szöveget a saját képfájlod nevére! */
+            background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('hatterkep.jpg'); 
+            background-size: cover; 
+            background-position: center;
+            background-repeat: no-repeat;
             display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
             padding: 0 20px;
         }
@@ -61,7 +66,7 @@
             font-family: 'Playfair Display', serif;
             font-size: clamp(2.5rem, 8vw, 5.5rem); margin: 0;
             text-transform: uppercase; letter-spacing: 6px;
-            text-shadow: 2px 2px 30px rgba(0,0,0,0.8);
+            text-shadow: 2px 2px 30px rgba(0,0,0,0.9);
         }
 
         .section-title {
@@ -72,6 +77,327 @@
 
         .about-section { 
             padding: 120px 10%; 
+            background-color: #0f0f0f; 
+            text-align: center; 
+        }
+
+        .about-text { 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            font-size: 1.25rem; 
+            line-height: 1.9; 
+            font-weight: 300; 
+            color: #eeeeee; 
+        }
+
+        .highlight-link {
+            color: var(--accent-color);
+            font-weight: 700;
+            text-decoration: underline;
+            transition: opacity 0.3s ease;
+        }
+
+        .highlight-link:hover {
+            opacity: 0.8;
+        }
+
+        /* Alkalmazási területek & Rendszertípusok kártyák */
+        .systems-section { padding: 100px 8%; background-color: #050505; }
+        
+        .class-container {
+            margin-bottom: 60px;
+        }
+
+        .class-title {
+            font-size: 1.8rem;
+            color: #ffffff;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 15px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .card-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 30px; 
+            max-width: 1400px; 
+            margin: 0 auto; 
+        }
+
+        .card { 
+            background: var(--card-bg);
+            padding: 30px;
+            border: 1px solid rgba(var(--accent-rgb), 0.15); 
+            border-radius: 4px;
+            transition: border 0.3s, transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover { 
+            border-color: var(--accent-color); 
+            transform: translateY(-5px); 
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            color: var(--accent-color);
+            margin-top: 0;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #cccccc;
+            font-weight: 300;
+        }
+
+        /* Gyártók szekció stílusai */
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .brand-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(var(--accent-rgb), 0.15);
+            padding: 22px 15px;
+            border-radius: 4px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #ffffff;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.05rem;
+        }
+
+        .brand-card:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            transform: translateY(-4px);
+            box-shadow: 0 5px 15px rgba(var(--accent-rgb), 0.15);
+        }
+
+        .gallery-section { padding: 100px 10%; background-color: #0f0f0f; text-align: center; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-top: 40px; }
+        .gallery-item { overflow: hidden; position: relative; border: 1px solid rgba(var(--accent-rgb), 0.15); aspect-ratio: 16 / 9; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+        .gallery-item:hover { border-color: var(--accent-color); }
+        .gallery-item:hover img { transform: scale(1.05); }
+
+        .content-section { padding: 100px 10%; text-align: center; background: #050505; }
+        
+        footer { padding: 60px 20px; text-align: center; background: #000; border-top: 1px solid rgba(var(--accent-rgb), 0.15); }
+        .footer-socials { margin-bottom: 20px; display: flex; justify-content: center; gap: 25px; }
+        .footer-socials a { color: #fff; font-size: 1.5rem; transition: 0.3s; }
+        .footer-socials a:hover { color: var(--accent-color); }
+
+        @media (max-width: 800px) {
+            nav { padding: 15px 20px; flex-direction: column; }
+            .social-icons { margin: 15px 0 0 0; }
+            .about-text { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigáció -->
+    <nav>
+        <a href="#" class="logo">Reinold Benko</a>
+        <div class="nav-content">
+            <ul>
+                <li><a href="#kezdolap">Kezdőlap</a></li>
+                <li><a href="#szolgaltatasok">Szolgáltatások</a></li>
+                <li><a href="#alkalmazasok">Alkalmazások</a></li>
+                <li><a href="#rendszerek">Rendszertípusok</a></li>
+                <li><a href="#gyartok">Gyártók</a></li>
+                <li><a href="#kapcsolat">Kapcsolat</a></li>
+            </ul>
+            <div class="social-icons">
+                <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Kezdőlap (Hero) -->
+    <section id="kezdolap" class="hero">
+        <h1>Napelemes Rendszerek</h1>
+        <p style="color: var(--accent-color); letter-spacing: 4px; text-transform: uppercase; font-weight: 700; margin-top: 15px;">
+          Családi Házak | Nyaraló Házak | Vállalkozások
+        </p>
+    </section>
+
+    <!-- Szolgáltatásaink -->
+    <section id="szolgaltatasok" class="systems-section" style="background-color: #070707;">
+        <h2 class="section-title" style="font-size: clamp(1.6rem, 3.5vw, 2.3rem);">KULCSRAKÉSZ NAPELEMES MEGOLDÁSOK: ENERGIAMEGTAKARÍTÁS + TELJES KÖRŰ SZOLGÁLTATÁS</h2>
+        
+        <p class="about-text" style="margin-bottom: 50px; font-size: 1.15rem;">
+            Csatlakozzon a több száz elégedett háztartáshoz és vállalkozáshoz, akik már a mi napenergiánkat használják. Mindenről gondoskodunk – a rendszer megtervezésétől a támogatások ügyintézésén át a professzionális kivitelezésig.
+        </p>
+
+        <div class="card-grid" style="margin-bottom: 50px;">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-solar-panel"></i></div>
+                <h3>Napelemek háztartásoknak és vállalatoknak</h3>
+                <p>Családi házakhoz és kereskedelmi ingatlanokhoz egyaránt testreszabott, kiváló minőségű napelemes rendszereket tervezünk és szállítunk.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-tools"></i></div>
+                <h3>Napelemes rendszerek teljes körű kivitelezése</h3>
+                <p>A teljes napelemes rendszer professzionális telepítése, bekötése és beüzemelése minősített szakemberek által.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-charging-station"></i></div>
+                <h3>Elektromos autó töltőállomások</h3>
+                <p>Modern töltőállomások (fali töltők / wallboxok) elektromos autójának hatékony, közvetlenül napenergiával történő töltéséhez.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-file-signature"></i></div>
+                <h3>Teljes körű megoldások ügyintézéssel és támogatásokkal</h3>
+                <p>Teljes körű mérnöki és lebonyolítási szolgáltatás, beleértve az állami támogatások, engedélyek és szerződések ügyintézését.</p>
+            </div>
+        </div>
+
+        <div class="about-text" style="max-width: 900px; margin: 0 auto; text-align: center;">
+            <p style="margin-bottom: 25px; font-size: 1.15rem;">
+                A <strong>ZF Solar & Elektro</strong> modern és fenntartható energiát biztosít mindenkinek. Szakértőink testreszabott megoldást terveznek, elintézik a szükséges engedélyeket, támogatásokat, és biztosítják a professzionális kivitelezést.
+            </p>
+            <p style="font-size: 1.25rem; font-weight: 500;">
+                Hogyan kezdje el? Csak lépjen velünk <a href="#kapcsolat" class="highlight-link">kapcsolatba</a>, és kérjen ingyenes, kötelezettségmentes konzultációt!
+            </p>
+        </div>
+    </section>
+
+    <!-- Alkalmazási Területek (Kiknek ajánljuk) -->
+    <section id="alkalmazasok" class="about-section">
+        <h2 class="section-title">Alkalmazási Területek</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-tree"></i></div>
+                <h3>Nyaraló házak</h3>
+                <p>Független energiaellátás hálózattól távol eső nyaralókhoz, hétvégi házakhoz és hobbitelkekhez intelligens akkumulátoros megoldásokkal.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-home"></i></div>
+                <h3>Családi Házak</h3>
+                <p>Modern lakossági napelemes rendszerek a havi villanyszámla nullázására vagy minimálisra csökkentésére, hibrid energiatárolási opciókkal.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-building"></i></div>
+                <h3>Vállalkozások</h3>
+                <p>Nagy teljesítményű ipari és üzleti napelem rendszerek, amelyek drasztikusan csökkentik a cégek működési energiaköltségeit és növelik a fenntarthatóságot.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rendszertípusok -->
+    <section id="rendszerek" class="systems-section">
+        <h2 class="section-title">Rendszertípusok</h2>
+
+        <!-- 1. OSZTÁLY: Akkumulátor nélküli rendszerek -->
+        <div class="class-container">
+            <h3 class="class-title">1. Akkumulátor Nélküli Rendszerek</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-plug"></i></div>
+                    <h3>On-Grid Rendszer (Hálózatra Tápláló)</h3>
+                    <p>
+                        Közvetlenül a közcélú villamos hálózatra csatlakozó rendszer. A megtermelt áramot a háztartás azonnal felhasználja, a többletet pedig betáplálja a hálózatba. 
+                        <strong>Előnye:</strong> Kedvezőbb beruházási költség, gyorsabb megtérülés.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. OSZTÁLY: Akkumulátoros rendszerek -->
+        <div class="class-container">
+            <h3 class="class-title">2. Akkumulátoros Rendszerek</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-battery-full"></i></div>
+                    <h3>Off-Grid Rendszer (Szigetüzemű)</h3>
+                    <p>
+                        A központi hálózattól teljesen független, önálló napelemes rendszer akkumulátoros energiatárolással. 
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-solar-panel"></i></div>
+                    <h3>Hibrid Rendszer (Hálózatra kapcsolt + Energiatárolós)</h3>
+                    <p>
+                        Egyesíti az On-Grid és Off-Grid rendszerek előnyeit: hálózatra csatlakozik, de akkumulátorokat is használ. Áramkimaradás esetén tartalék áramforrásként szolgál, és maximalizálja a saját fogyasztást.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vezető Gyártók -->
+    <section id="gyartok" class="about-section" style="background-color: #0f0f0f;">
+        <h2 class="section-title" style="font-size: clamp(1.6rem, 3.5vw, 2.3rem);">Vezető gyártók technológiái egy rendszerben</h2>
+        <p class="about-text" style="margin-bottom: 45px; font-size: 1.15rem;">
+            Kizárólag a világ élvonalába tartozó, csúcsminőségű és megbízható gyártók alkatrészeivel dolgozunk a maximális hatékonyság és hosszú élettartam érdekében.
+        </p>
+        
+        <div class="brands-grid">
+            <div class="brand-card">Trina Solar</div>
+            <div class="brand-card">JA Solar</div>
+            <div class="brand-card">Huawei</div>
+            <div class="brand-card">GoodWe</div>
+            <div class="brand-card">SolaX Power</div>
+            <div class="brand-card">TW Solar</div>
+            <div class="brand-card">Deye</div>
+            <div class="brand-card">Canadian Solar</div>
+            <div class="brand-card">Solinteg</div>
+            <div class="brand-card">Tigo</div>
+            <div class="brand-card">Gotion</div>
+            <div class="brand-card">Dyness</div>
+            <div class="brand-card">Pylontech</div>
+            <div class="brand-card">Soluna</div>
+        </div>
+    </section>
+
+    <!-- Kapcsolat -->
+    <section id="kapcsolat" class="content-section">
+        <h2 class="section-title">Kapcsolat</h2>
+        <p>Kérjen egyedi árajánlatot vagy ingyenes helyszíni felmérést!</p>
+        <p style="color: var(--accent-color); font-size: 1.4rem; margin-top: 15px; font-weight: bold;">
+            reinold.benko@zfsolar.sk
+        </p>
+        <p style="color: #ffffff; font-size: 1.1rem; margin-top: 5px;">
+            +421 908 999 359
+        </p>
+    </section>
+
+    <!-- Lábléc -->
+    <footer>
+        <div class="footer-socials">
+            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="copyright">© 2026 reinoldbenko.com Minden jog fenntartva.</div>
+    </footer>
+
+</body>
+</html>            padding: 120px 10%; 
             background-color: #0f0f0f; 
             text-align: center; 
         }
